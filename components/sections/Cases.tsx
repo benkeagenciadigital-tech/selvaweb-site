@@ -34,7 +34,9 @@ export default function Cases() {
           {cases.map((c) => (
             <StaggerItem key={c.slug}>
               <Link
-                href="/work"
+                href={c.url}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group flex h-full flex-col overflow-hidden border border-forest-line bg-canopy-2/50 transition-all duration-300 hover:-translate-y-1 hover:border-lime/50"
               >
                 <div className="relative aspect-[16/10] w-full overflow-hidden">

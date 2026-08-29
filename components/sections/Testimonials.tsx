@@ -49,7 +49,7 @@ export default function Testimonials() {
                   }`}
                 >
                   <span className="inline-block h-px w-8 bg-lime" />
-                  {t.name} · {t.role}
+                  {t.name}{t.role ? ` · ${t.role}` : ""}
                 </footer>
               </blockquote>
             </Reveal>

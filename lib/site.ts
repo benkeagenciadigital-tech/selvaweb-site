@@ -181,6 +181,7 @@ export const cases = [
     summary:
       "Site institucional para indústria e distribuição de soluções em plástico, com catálogo de produtos e área de parceiros.",
     image: "/portfolio/plasfan.jpeg",
+    url: "https://plasfansc.com.br/",
     tag: "Site institucional",
   },
   {
@@ -191,6 +192,7 @@ export const cases = [
     summary:
       "Presença digital premium para a linha de picolés e sobremesas, com vitrine de produtos e contato direto pelo WhatsApp.",
     image: "/portfolio/qdelicia.jpeg",
+    url: "https://www.qdeliciasorvetes.com.br/",
     tag: "Site institucional",
   },
   {
@@ -201,6 +203,7 @@ export const cases = [
     summary:
       "Site institucional sóbrio e imersivo para tecnologia naval, com áreas de serviços, clientes, treinamentos e navegação multilíngue.",
     image: "/portfolio/tronno.jpeg",
+    url: "https://tronno.com.br/",
     tag: "Site institucional",
   },
   {
@@ -211,6 +214,7 @@ export const cases = [
     summary:
       "Site de agência de branding com estética forte e editorial, portfólio em destaque e captação de novos clientes.",
     image: "/portfolio/benke.jpeg",
+    url: "https://www.benkeagencia.com.br/",
     tag: "Site institucional",
   },
   {
@@ -221,6 +225,7 @@ export const cases = [
     summary:
       "Loja virtual de vinhos e espumantes com catálogo completo, filtros de navegação e checkout para todo o Brasil.",
     image: "/portfolio/filho.jpeg",
+    url: "https://www.filhodocriador.com.br/",
     tag: "Loja virtual",
   },
   {
@@ -231,6 +236,7 @@ export const cases = [
     summary:
       "Loja virtual de materiais de construção com catálogo por categorias e experiência responsiva no desktop e no mobile.",
     image: "/portfolio/mp.jpeg",
+    url: "https://www.mpmelhorpreco.com.br/",
     tag: "Loja virtual",
   },
 ] as const;
@@ -247,21 +253,21 @@ export const stats = [
 export const testimonials = [
   {
     quote:
-      "Fechei na segunda e na quinta meu site já estava no ar. Todo mundo pergunta quanto custou — e ninguém acredita quando eu falo.",
-    name: "Marina Lopes",
-    role: "Dona · Café Aurora",
+      "O site ficou muito mais organizado e fácil de apresentar para nossos clientes. Hoje conseguimos mostrar melhor nossos produtos e a empresa de forma profissional.",
+    name: "PLASFAN",
+    role: "",
   },
   {
     quote:
-      "Parece site de empresa grande. Pacientes chegam na clínica dizendo que escolheram a gente pela página.",
-    name: "Dra. Paula Andrade",
-    role: "Sócia · Sorrir Odonto",
+      "A ideia era ter um site que mostrasse nossos produtos de um jeito mais bonito e atual. O resultado ficou bem próximo do que imaginávamos.",
+    name: "Q'DELÍCIA SORVETES",
+    role: "",
   },
   {
     quote:
-      "Eu não entendo nada de internet e não precisei entender. Falaram a minha língua do começo ao fim.",
-    name: "Carlos Duarte",
-    role: "Sócio · Duarte & Sá Advocacia",
+      "Precisávamos de um site que facilitasse a apresentação dos produtos e deixasse a experiência de compra mais clara. Ficou simples, funcional e com a nossa identidade.",
+    name: "FILHO DO CRIADOR",
+    role: "",
   },
 ] as const;
 
