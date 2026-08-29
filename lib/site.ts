@@ -14,7 +14,7 @@ export const site = {
   description:
     "A SELVA cria sites com cara de premium para pequenos e médios negócios — layout do seu jeito, entrega expressa e preço que não assusta.",
   url: "https://selva.studio",
-  email: "contato@selva.studio",
+  email: "atendimento@selvaweb.com.br",
   phone: "+55 11 0000-0000",
   location: "Itajaí — Santa Catarina · Atendimento em todo o Brasil",
   socials: [
