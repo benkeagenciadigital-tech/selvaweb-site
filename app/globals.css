@@ -1,0 +1,262 @@
+@import "tailwindcss";
+
+/* ============================================================
+   SELVA — DESIGN SYSTEM TOKENS
+   "We build digital habitats that hunt tomorrow."
+   ============================================================ */
+
+@theme {
+  /* Core palette */
+  --color-jungle: #000000;        /* pure black */
+  --color-canopy: #0a0a0a;        /* base background */
+  --color-canopy-2: #0e120d;      /* raised surface */
+  --color-forest: #1a2a1f;        /* deep forest secondary */
+  --color-forest-line: #21321f;   /* hairline on dark */
+  --color-lime: #a6ce39;          /* primary */
+  --color-lime-bright: #c4f24a;   /* glow / hover */
+  --color-lime-dim: #7c9c2b;      /* muted lime */
+  --color-mist: #f4f4f0;          /* surface / neutral text */
+  --color-signal: #b0b0b0;        /* support grey */
+  --color-signal-dim: #6f6f6f;    /* disabled / faint */
+
+  /* Type */
+  --font-display: var(--font-display-var), "Helvetica Neue", sans-serif;
+  --font-body: var(--font-body-var), system-ui, sans-serif;
+  --font-mono: var(--font-mono-var), "SFMono-Regular", monospace;
+
+  /* Motion */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-quint: cubic-bezier(0.83, 0, 0.17, 1);
+
+  /* Radii (from brand: 4 / 8 / 16 / 24) */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+
+  /* Section rhythm */
+  --shell: 1320px;
+}
+
+:root {
+  --background: var(--color-canopy);
+  --foreground: var(--color-mist);
+}
+
+* {
+  border-color: var(--color-forest-line);
+}
+
+html {
+  background: var(--color-canopy);
+  color: var(--color-mist);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background: var(--color-canopy);
+  color: var(--color-mist);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-lime);
+  color: #0a0a0a;
+}
+
+/* Lenis */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* ============================================================
+   UTILITIES
+   ============================================================ */
+
+.display {
+  font-family: var(--font-display);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+  text-wrap: balance;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--color-lime);
+}
+
+.mono-label {
+  font-family: var(--font-mono);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.text-glow {
+  text-shadow: 0 0 24px rgba(166, 206, 57, 0.45);
+}
+
+.lime-gradient {
+  background: linear-gradient(100deg, var(--color-lime) 0%, var(--color-lime-bright) 100%);
+}
+
+/* Fine grain overlay (applied on body wrapper) */
+.grain::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* HUD hairline grid */
+.hud-grid {
+  background-image:
+    linear-gradient(to right, rgba(166, 206, 57, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(166, 206, 57, 0.06) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+.spotlight {
+  background: radial-gradient(60% 60% at 50% 30%, rgba(166, 206, 57, 0.1), transparent 70%);
+}
+
+/* HUD corner frame */
+.hud-frame {
+  position: relative;
+}
+.hud-frame::before,
+.hud-frame::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-color: var(--color-lime);
+  opacity: 0.7;
+}
+.hud-frame::before {
+  top: 0;
+  left: 0;
+  border-top: 1px solid;
+  border-left: 1px solid;
+}
+.hud-frame::after {
+  bottom: 0;
+  right: 0;
+  border-bottom: 1px solid;
+  border-right: 1px solid;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.35; transform: scale(0.7); }
+}
+.pulse-dot { animation: pulse-dot 2s var(--ease-in-out-quint) infinite; }
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee-track { animation: marquee 40s linear infinite; }
+
+/* Neon light running around a card border — a single continuous line
+   that travels the full perimeter. dash + gap = pathLength (100) → the
+   one streak wraps seamlessly across the start/end seam. */
+@keyframes neon-run {
+  to { stroke-dashoffset: -100; }
+}
+.neon-rect {
+  stroke-dasharray: 38 62;
+  stroke-dashoffset: 0;
+  animation: neon-run 3s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* ============================================================
+   FABLE REDESIGN — editorial predator utilities
+   ============================================================ */
+
+/* Display editorial: Bricolage em corpo gigante, apertada e densa */
+.display {
+  font-optical-sizing: auto;
+}
+.display-condensed {
+  font-family: var(--font-display);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  /* 0.98: folga para os diacríticos das maiúsculas (Í, Ã, Ç) — as
+     máscaras de reveal cortam qualquer coisa acima da caixa da linha */
+  line-height: 0.98;
+  text-wrap: balance;
+}
+
+/* Olhos de pantera — piscada dupla ocasional */
+@keyframes panther-blink {
+  0%, 88%, 100% { transform: scaleY(1); }
+  90%, 94% { transform: scaleY(0.04); }
+  92% { transform: scaleY(1); }
+}
+.panther-eye {
+  transform-origin: center;
+  animation: panther-blink 6.5s ease-in-out infinite;
+}
+
+/* Pupila que segue sutilmente (via CSS var setada por JS) */
+.panther-pupil {
+  transition: transform 0.6s var(--ease-out-expo);
+  transform: translateX(var(--pupil-x, 0px));
+}
+
+/* Feixe de luz percorrendo o contorno do wordmark neon.
+   dash + gap = pathLength (100) → o feixe dá a volta completa sem emenda. */
+@keyframes neon-trace {
+  to { stroke-dashoffset: -100; }
+}
+.neon-trace {
+  stroke-dasharray: 7 93;
+  animation: neon-trace 16s linear infinite;
+  opacity: 0.75;
+  filter: blur(1.3px) drop-shadow(0 0 16px rgba(196, 242, 74, 0.5));
+}
+
+/* Faixa marquee inclinada */
+.tilt-band {
+  transform: rotate(-1.6deg) scale(1.04);
+}
+
+/* Linha que cresce quando a seção entra (usada em hairlines editoriais) */
+@keyframes rule-grow {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+.rule-grow {
+  transform-origin: left;
+  animation: rule-grow 1.2s var(--ease-out-expo) both;
+}
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #050505; }
+::-webkit-scrollbar-thumb { background: #1a2a1f; border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-lime-dim); }
